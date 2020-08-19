@@ -1,3 +1,5 @@
+This React App is in association with Udemy React tutorial. Follow along as I learn React!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
