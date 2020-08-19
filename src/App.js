@@ -32,17 +32,31 @@ class App extends Component {
             ] 
         } )
     }
+
+    render () {
+        const style = {
+            backgroundColor: 'blue',
+            font: 'inherit',
+            border: '1px solid blue',
+            padding: '8px',
+            color: 'white',
+            cursor: 'pointer'
+        };
+    
     
     // only works in classes
-    render() {
+     
         return(
         <div className="App">
             <h1>Hi, I'm a React App</h1>
-            <button onClick={this.switchNameHandler}> Switch Name</button>
+            <button 
+                onClick={this.switchNameHandler}
+                style={style}> Switch Name</button>
             <Person 
                 name={this.state.persons[0].name} 
                 age={this.state.persons[0].age}
-                click={this.switchNameHandler}>  My hobbies include: Playing Video Games, Cuddling, and Cooking </Person> 
+                click={this.switchNameHandler}
+                changed={this.nameChangeHandler}>  My hobbies include: Playing Video Games, Cuddling, and Cooking </Person> 
             <Person 
                 name={this.state.persons[1].name} 
                 age={this.state.persons[1].age} >  My hobbies include: Coding, Playing Guitar, and Sleeping </Person>  
