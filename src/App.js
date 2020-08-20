@@ -20,7 +20,9 @@ class App extends Component {
         this.setState( {
             persons: [
                 {name: 'Bryan', age: 29},
-                {name: 'Cameron', age: 29} 
+                {name: 'Cameron', age: 29}, 
+                {name: 'Viola Antionette Baby Sweetheart Gurl', age: 2},
+                {name: 'Jimmy Boi', age: '????'}
             ] 
         } )
     }
@@ -58,6 +60,31 @@ class App extends Component {
             color: 'white',
             cursor: 'pointer'
         };
+
+        let persons = null;
+
+        if (this.state.showPersons === true) {
+            persons = (
+                <div>
+                    {this.state.persons.map( person => {
+                        return <Person 
+                            name={person.name} 
+                            age={person.age} />
+                    })}
+
+                    {/* <Person 
+                        name={this.state.persons[0].name} 
+                        age={this.state.persons[0].age}
+                        click={this.switchNameHandler}
+                        changed={this.nameChangeHandler}>  My hobbies include: Playing Video Games, Cuddling, and Cooking </Person> 
+                    <Person 
+                        name={this.state.persons[1].name} 
+                        age={this.state.persons[1].age} >  My hobbies include: Coding, Playing Guitar, and Sleeping </Person>  
+                    <Person name="Viola" age="2" >  My hobbies include: Hoofing, Cuddling, and Playing </Person>
+                    <Person name="Jimmy" age="?" > My hobbies include: Snarling, Cuddling, and Sleeping</Person>  */}
+                </div> 
+            );
+        }  
     
     
     // only works in classes
@@ -73,22 +100,9 @@ class App extends Component {
                 <button 
                     onClick={this.togglePersonsHandler}
                     style={secondaryButtonStyle}> Show Persons</button>
-
-                { 
-                    this.state.showPersons === true ? 
-                        <div>
-                            <Person 
-                                name={this.state.persons[0].name} 
-                                age={this.state.persons[0].age}
-                                click={this.switchNameHandler}
-                                changed={this.nameChangeHandler}>  My hobbies include: Playing Video Games, Cuddling, and Cooking </Person> 
-                            <Person 
-                                name={this.state.persons[1].name} 
-                                age={this.state.persons[1].age} >  My hobbies include: Coding, Playing Guitar, and Sleeping </Person>  
-                            <Person name="Viola" age="2" >  My hobbies include: Hoofing, Cuddling, and Playing </Person>
-                            <Person name="Jimmy" age="?" > My hobbies include: Snarling, Cuddling, and Sleeping</Person> 
-                        </div> : null
-                }
+                
+                {persons}
+                    
             </div>
         );
     }
