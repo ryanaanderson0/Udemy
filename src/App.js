@@ -19,10 +19,10 @@ class App extends Component {
         //DONT DO THIS this.state.persons[0].name = 'Bryan';
         this.setState( {
             persons: [
-                {name: 'Bryan', age: 29},
-                {name: 'Cameron', age: 29}, 
-                {name: 'Viola Antionette Baby Sweetheart Gurl', age: 2},
-                {name: 'Jimmy Boi', age: '????'}
+                { id: "a", name: 'Bryan', age: 29},
+                { id: "b", name: 'Cameron', age: 29}, 
+                { id: "c", name: 'Viola Antionette Baby Sweetheart Gurl', age: 2},
+                { id: "d", name: 'Jimmy Boi', age: '????'}
             ] 
         } )
     }
@@ -47,7 +47,6 @@ class App extends Component {
         const doesShow = this.state.showPersons;
         this.setState({showPersons: !doesShow});
     }
-
 
     render () {
         const primaryButtonStyle = {
@@ -77,7 +76,8 @@ class App extends Component {
                         return <Person 
                             click={() => this.deletePersonHandler(index)}
                             name={person.name} 
-                            age={person.age} />
+                            age={person.age}
+                            key={person.id} />
                     })}
                 </div> 
             );
@@ -97,7 +97,9 @@ class App extends Component {
                 <button 
                     onClick={this.togglePersonsHandler}
                     style={secondaryButtonStyle}> Show Persons</button>
-                
+
+                <p>Click on any name card to delete</p>
+
                 {persons}
                     
             </div>
