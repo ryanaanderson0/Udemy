@@ -107,7 +107,8 @@ class App extends Component {
                     onClick={this.togglePersonsHandler}
                     style={secondaryButtonStyle}> Show Persons</button>
 
-                <p>Click on any name card to delete</p>
+                <h2>--Click on any name to delete--</h2>
+                <h2>--Edit the names via the text box--</h2>
 
                 {persons}
                     
