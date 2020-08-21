@@ -27,6 +27,12 @@ class App extends Component {
         } )
     }
 
+    deletePersonHandler = (personIndex) => {
+        const persons = this.state.persons;
+        persons.splice(personIndex, 1);
+        this.setState({persons: persons})
+    }
+
     nameChangeHandler = (event) => {
         this.setState( {
             persons: [
@@ -66,22 +72,12 @@ class App extends Component {
         if (this.state.showPersons === true) {
             persons = (
                 <div>
-                    {this.state.persons.map( person => {
+                    {this.state.persons.map((person, index)=> {
                         return <Person 
+                            click={() => this.deletePersonHandler(index)}
                             name={person.name} 
                             age={person.age} />
                     })}
-
-                    {/* <Person 
-                        name={this.state.persons[0].name} 
-                        age={this.state.persons[0].age}
-                        click={this.switchNameHandler}
-                        changed={this.nameChangeHandler}>  My hobbies include: Playing Video Games, Cuddling, and Cooking </Person> 
-                    <Person 
-                        name={this.state.persons[1].name} 
-                        age={this.state.persons[1].age} >  My hobbies include: Coding, Playing Guitar, and Sleeping </Person>  
-                    <Person name="Viola" age="2" >  My hobbies include: Hoofing, Cuddling, and Playing </Person>
-                    <Person name="Jimmy" age="?" > My hobbies include: Snarling, Cuddling, and Sleeping</Person>  */}
                 </div> 
             );
         }  
