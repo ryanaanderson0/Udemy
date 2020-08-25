@@ -95,12 +95,20 @@ class App extends Component {
 
         }  
     
-    
-    // only works in classes
+        //let classes = ['red', 'large'].join(' '); empty call joins both red and bold into one string
      
+        let classes = [];
+        if (this.state.persons.length <= 2) {
+            classes.push('red');
+        }
+
+        if (this.state.persons.length <= 1) {
+            classes.push('large');
+        }
+
         return(
             <div className="App">
-                <h1>Hi, I'm a React App</h1>
+                <h1 className={classes.join(' ')}>Hi, I'm a React App</h1>
                 <button 
                     // onClick={this.switchNameHandler}
                     onClick={this.switchNameHandler}

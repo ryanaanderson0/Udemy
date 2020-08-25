@@ -4,14 +4,18 @@
   padding: 20px;
 }
 
-h1, h2{
-  color: #e2e2e2;
-  font-size: 3em;
+.red {
+  color: red;
+}
+
+.large {
+  font-size: 4em;
 }
 
 h2{
   color: #c5c5c5;
   font-size: 1.75em;
 }
+
 
 
