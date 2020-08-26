@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Radium, { StyleRoot } from 'radium';
+import styled from 'styled-components';
+
 
 class App extends Component {
     state = {
@@ -117,7 +118,6 @@ class App extends Component {
         }
 
         return(
-            <StyleRoot>
                 <div className="App">
                     <h1 className={classes.join(' ')}>Hi, I'm a React App</h1>
                     <button 
@@ -135,9 +135,8 @@ class App extends Component {
                     {persons}
                         
                 </div>
-            </StyleRoot>
         );
     }
 }
 
-export default Radium(App);
+export default App;
