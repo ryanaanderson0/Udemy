@@ -13,7 +13,7 @@ const StyledPrimaryButton = styled.button`
 `
 
 const StyledSecondaryButton = styled.button`
-    background-color: red;
+    background-color: ${props => props.alt ? 'green' : 'red'};
     font: inherit;
     border: 1px solid red;
     padding: 8px;
@@ -82,28 +82,7 @@ class App extends Component {
     }
 
     render () {
-        // const primaryButtonStyle = {
-        //     backgroundColor: 'blue',
-        //     font: 'inherit',
-        //     border: '1px solid blue',
-        //     padding: '8px',
-        //     color: 'white',
-        //     cursor: 'pointer'
-        // };
-
-        // const secondaryButtonStyle = {
-        //     backgroundColor: 'red',
-        //     font: 'inherit',
-        //     border: '1px solid red',
-        //     padding: '8px',
-        //     color: 'white',
-        //     cursor: 'pointer',
-        //     ':hover': {
-        //         backgroundColor: 'pink',
-        //         color: 'yellow'
-        //     }
-        // };
-
+      
         let persons = null;
 
         if (this.state.showPersons === true) {
@@ -120,13 +99,11 @@ class App extends Component {
                 </div> 
             );
 
-            StyledSecondaryButton.backgroundColor = 'green';
-            StyledSecondaryButton[':hover'] = {
-                backgroundColor: 'pink',
-                color: 'yellow'
-            };
-
-
+            // StyledSecondaryButton.backgroundColor = 'green';
+            // StyledSecondaryButton[':hover'] = {
+            //     backgroundColor: 'pink',
+            //     color: 'yellow'
+            // };
         }  
     
         //let classes = ['red', 'large'].join(' '); empty call joins both red and bold into one string
@@ -148,7 +125,8 @@ class App extends Component {
                         onClick={this.switchNameHandler}
                          > Switch Name</StyledPrimaryButton>
 
-                    <StyledSecondaryButton 
+                    <StyledSecondaryButton
+                        alt={this.state.showPersons} 
                         onClick={this.togglePersonsHandler}
                         > Show Persons</StyledSecondaryButton>
 
