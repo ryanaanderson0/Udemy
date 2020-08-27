@@ -1,7 +1,30 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person';
 import styled from 'styled-components';
+import Person from './Person/Person';
+
+const StyledPrimaryButton = styled.button`
+    background-color: blue;
+    font: inherit;
+    border: 1px solid blue;
+    padding: 8px;
+    color: white;
+    cursor: pointer;
+`
+
+const StyledSecondaryButton = styled.button`
+    background-color: red;
+    font: inherit;
+    border: 1px solid red;
+    padding: 8px;
+    color: white;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: pink;
+        color: yellow;
+    }
+`
 
 
 class App extends Component {
@@ -59,27 +82,27 @@ class App extends Component {
     }
 
     render () {
-        const primaryButtonStyle = {
-            backgroundColor: 'blue',
-            font: 'inherit',
-            border: '1px solid blue',
-            padding: '8px',
-            color: 'white',
-            cursor: 'pointer'
-        };
+        // const primaryButtonStyle = {
+        //     backgroundColor: 'blue',
+        //     font: 'inherit',
+        //     border: '1px solid blue',
+        //     padding: '8px',
+        //     color: 'white',
+        //     cursor: 'pointer'
+        // };
 
-        const secondaryButtonStyle = {
-            backgroundColor: 'red',
-            font: 'inherit',
-            border: '1px solid red',
-            padding: '8px',
-            color: 'white',
-            cursor: 'pointer',
-            ':hover': {
-                backgroundColor: 'pink',
-                color: 'yellow'
-            }
-        };
+        // const secondaryButtonStyle = {
+        //     backgroundColor: 'red',
+        //     font: 'inherit',
+        //     border: '1px solid red',
+        //     padding: '8px',
+        //     color: 'white',
+        //     cursor: 'pointer',
+        //     ':hover': {
+        //         backgroundColor: 'pink',
+        //         color: 'yellow'
+        //     }
+        // };
 
         let persons = null;
 
@@ -97,8 +120,8 @@ class App extends Component {
                 </div> 
             );
 
-            secondaryButtonStyle.backgroundColor = 'green';
-            secondaryButtonStyle[':hover'] = {
+            StyledSecondaryButton.backgroundColor = 'green';
+            StyledSecondaryButton[':hover'] = {
                 backgroundColor: 'pink',
                 color: 'yellow'
             };
@@ -120,14 +143,14 @@ class App extends Component {
         return(
                 <div className="App">
                     <h1 className={classes.join(' ')}>Hi, I'm a React App</h1>
-                    <button 
+                    <StyledPrimaryButton 
                         // onClick={this.switchNameHandler}
                         onClick={this.switchNameHandler}
-                        style={primaryButtonStyle}> Switch Name</button>
+                         > Switch Name</StyledPrimaryButton>
 
-                    <button 
+                    <StyledSecondaryButton 
                         onClick={this.togglePersonsHandler}
-                        style={secondaryButtonStyle}> Show Persons</button>
+                        > Show Persons</StyledSecondaryButton>
 
                     <h2>--Click on any name to delete--</h2>
                     <h2>--Edit the names via the text box--</h2>
