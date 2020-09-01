@@ -1,30 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import styled from 'styled-components';
-import Person from '../components/Persons/Person/Person';
-
-const StyledPrimaryButton = styled.button`
-    background-color: blue;
-    font: inherit;
-    border: 1px solid blue;
-    padding: 8px;
-    color: white;
-    cursor: pointer;
-`
-
-const StyledSecondaryButton = styled.button`
-    background-color: ${props => props.alt ? 'green' : 'red'};
-    font: inherit;
-    border: 1px solid red;
-    padding: 8px;
-    color: white;
-    cursor: pointer;
-    
-    &:hover {
-        background-color: pink;
-        color: yellow;
-    }
-`
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 
 class App extends Component {
@@ -87,17 +64,11 @@ class App extends Component {
 
         if (this.state.showPersons === true) {
             persons = (
-                <div>
-                    {this.state.persons.map((person, index)=> {
-                        return <Person 
-                                click={() => this.deletePersonHandler(index)}
-                                name={person.name} 
-                                age={person.age}
-                                key={person.id} 
-                                changed={(event) => this.nameChangeHandler(event, person.id)}  />
-                            
-                    } )}
-                </div> 
+                <Persons 
+                    persons={this.state.persons}
+                    clicked={this.deletePersonHandler}
+                    changed={this.nameChangeHandler}
+                    />
             );
 
             // StyledSecondaryButton.backgroundColor = 'green';
@@ -109,31 +80,14 @@ class App extends Component {
     
         //let classes = ['red', 'large'].join(' '); empty call joins both red and bold into one string
      
-        let classes = [];
-        if (this.state.persons.length <= 2) {
-            classes.push('red');
-        }
-
-        if (this.state.persons.length <= 1) {
-            classes.push('large');
-        }
+        
 
         return(
                 <div className="App">
-                    <h1 className={classes.join(' ')}>Hi, I'm a React App</h1>
-                    <StyledPrimaryButton 
-                        // onClick={this.switchNameHandler}
-                        onClick={this.switchNameHandler}
-                         > Switch Name</StyledPrimaryButton>
-
-                    <StyledSecondaryButton
-                        alt={this.state.showPersons} 
-                        onClick={this.togglePersonsHandler}
-                        > Show Persons</StyledSecondaryButton>
-
-                    <h2>--Click on any name to delete--</h2>
-                    <h2>--Edit the names via the text box--</h2>
-
+                    <Cockpit 
+                        showPersons={this.state.showPersons}
+                        persons={this.state.persons}
+                        clicked={this.togglePersonsHandler} />
                     {persons}
                         
                 </div>
