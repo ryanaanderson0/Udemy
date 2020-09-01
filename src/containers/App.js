@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import styled from 'styled-components';
-import Person from './Person/Person';
+import Person from '../components/Persons/Person/Person';
 
 const StyledPrimaryButton = styled.button`
     background-color: blue;
